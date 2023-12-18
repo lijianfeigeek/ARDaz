@@ -76,15 +76,18 @@ struct QRCodeScannerExampleView: View {
                     }.success { (task) in
                         print("下载完成")
                         print(task.filePath)
-                        let unzipPath = NSTemporaryDirectory()
+                        let unzipPath = NSTemporaryDirectory()+"/model"
                         SSZipArchive.unzipFile(atPath: task.filePath, toDestination: unzipPath)
                         let fileManager = FileManager.default
                         // 模型位置
-                        let filePath =  NSTemporaryDirectory()+"/daz.usdz"
+                        let filePath =  NSTemporaryDirectory()+"/model/daz.usdz"
                         if fileManager.fileExists(atPath: filePath) {
-                            print("文件存在")
+                            print("模型文件存在")
+                            print(filePath)
+                            // 加载模型
+                            
                         } else {
-                            print("文件不存在")
+                            print("模型文件不存在")
                         }
                         
                     }.failure { (task) in
