@@ -10,12 +10,14 @@ import CodeScanner
 import AlertToast
 import Tiercel
 import ZipArchive
+
 struct ContentView: View {
     @State  var showErrorToast = false
     @State  var showSuccessToast = false
+    @State  var showARView = false
     var body: some View {
         VStack {
-            QRCodeScannerExampleView(showErrorToast: $showErrorToast,showSuccessToast:$showSuccessToast)
+            QRCodeScannerExampleView(showErrorToast: $showErrorToast,showSuccessToast:$showSuccessToast,showARView: $showARView)
             .toast(isPresenting: $showSuccessToast) {
                 AlertToast(type: .regular, title: "ARDaz will coming...")
             }
@@ -23,6 +25,12 @@ struct ContentView: View {
                 AlertToast(type: .error(.red), title: "QR code error")
             }
         }
+        .sheet(isPresented: $showARView, content: {
+            ARContentView()
+                .onDisappear {
+                    showARView = false
+                }
+        })
         .padding()
     }
 }
@@ -44,6 +52,7 @@ struct QRCodeScannerExampleView: View {
     
     @Binding var showErrorToast: Bool
     @Binding var showSuccessToast: Bool
+    @Binding var showARView:Bool
 
     @State private var scannedCode: String?
     
@@ -76,19 +85,36 @@ struct QRCodeScannerExampleView: View {
                     }.success { (task) in
                         print("下载完成")
                         print(task.filePath)
-                        let unzipPath = NSTemporaryDirectory()+"/model"
-                        SSZipArchive.unzipFile(atPath: task.filePath, toDestination: unzipPath)
-                        let fileManager = FileManager.default
-                        // 模型位置
-                        let filePath =  NSTemporaryDirectory()+"/model/daz.usdz"
-                        if fileManager.fileExists(atPath: filePath) {
-                            print("模型文件存在")
-                            print(filePath)
-                            // 加载模型
+                        let unzipPath = NSTemporaryDirectory()+UUID().uuidString
+//                        SSZipArchive.unzipFile(atPath: task.filePath, toDestination: unzipPath)
+                        SSZipArchive.unzipFile(atPath: task.filePath, toDestination: unzipPath, progressHandler: nil) { filePath, success, Error in
+                            if(success){
+                                let fileManager = FileManager.default
+                                if fileManager.fileExists(atPath: filePath) {
+                                    print("模型文件解压完成")
+                                    do {
+                                            let fileManager = FileManager.default
+                                            let items = try fileManager.contentsOfDirectory(atPath: unzipPath)
+                                            
+                                            for item in items {
+                                                let model = unzipPath+"/"+item
+                                                print("模型文件="+model)
+                                            }
+                                        } catch {
+                                            showErrorToast.toggle()
+                                            print("Error while enumerating files \(unzipPath): \(error.localizedDescription)")
+                                        }
+                                    
+                                    // 加载模型
+                                    showARView = true
+                                } else {
+                                    print("模型文件不存在")
+                                }
+                            }else{
+                                print("解压失败")
+                            }
                             
-                        } else {
-                            print("模型文件不存在")
-                        }
+                        };
                         
                     }.failure { (task) in
                         print("下载失败")
