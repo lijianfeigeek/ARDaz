@@ -29,48 +29,61 @@ class ARViewController: UIViewController {
     }
 
     override func loadView() {
-        // debugLog("AR: ARVC: loadView() was called.")
+        // 在视图加载时调用此方法来设置AR视图
 
         #if !targetEnvironment(simulator)
+        // 检查是否在模拟器环境中运行，如果不是，执行以下代码
         if ProcessInfo.processInfo.isiOSAppOnMac {
+            // 检查应用是否在Mac上的iOS环境中运行
             arView = ARView(frame: .zero,
                             cameraMode: .nonAR,
                             automaticallyConfigureSession: false)
+            // 在Mac上使用非AR模式初始化ARView
             arView.environment.background
                 = ARView.Environment.Background.color(AppConfig.arBackgroundColor)
+            // 设置AR视图的背景色
         } else {
+            // 如果不在Mac上运行，则使用正常的AR模式
             arView = ARView(frame: .zero,
                             cameraMode: .ar,
                             automaticallyConfigureSession: false)
         }
         #else
+        // 如果在模拟器中运行，仅初始化ARView，不配置特定的模式
         arView = ARView(frame: .zero)
         arView.environment.background
             = ARView.Environment.Background.color(AppConfig.arBackgroundColor)
+        // 设置AR视图的背景色
         #endif
 
+        // 设置AR会话的代理
         arView.session.delegate = self
+        // 将视图控制器的主视图设置为AR视图
         view = arView
 
         #if DEBUG
+        // 在调试模式下，根据配置设置AR视图的调试选项
         if AppConfig.enableARDebugOptions {
             arView.debugOptions = [
                 // .showWorldOrigin,
                 // .showAnchorOrigins,
-                .showSceneUnderstanding // ,
+//                .showSceneUnderstanding // 设置AR视图的调试选项，例如显示场景理解等
                 // .showStatistics,
                 // .showPhysics
             ]
         }
         #endif
 
+        // 设置AR辅助视图，用于在用户与AR交互时提供引导
         arCoachingView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         arCoachingView.session = arView.session
         arCoachingView.activatesAutomatically = true
         arCoachingView.goal = .anyPlane
         arCoachingView.delegate = self
+        // 将AR辅助视图添加到AR视图上
         arView.addSubview(arCoachingView)
     }
+
 
     override func viewDidLoad() {
         // debugLog("AR: ARVC: viewDidLoad() was called.")
