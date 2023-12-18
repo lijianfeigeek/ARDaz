@@ -7,6 +7,7 @@
 
 import RealityKit
 import Combine
+import Foundation
 
 final class ARScene {
     let anchorEntity: AnchorEntity
@@ -53,7 +54,9 @@ final class ARScene {
                     })
                     .store(in: &loadingSubscriptions)
             } else {
-                Entity.loadAsync(named: modelSpec.fileName)
+                let fileURL = URL(fileURLWithPath: DazModelSingleton.shared.modelPath)
+                Entity.loadAsync(contentsOf: fileURL)
+//                Entity.loadAsync(named: modelSpec.fileName)
                     .sink(receiveCompletion: { _ in
                         // handle error
                     }, receiveValue: { [weak self] entity in

@@ -97,8 +97,9 @@ struct QRCodeScannerExampleView: View {
                                             let items = try fileManager.contentsOfDirectory(atPath: unzipPath)
                                             
                                             for item in items {
-                                                let model = unzipPath+"/"+item
-                                                print("模型文件="+model)
+                                                let modelath = unzipPath+"/"+item
+                                                DazModelSingleton.shared.modelPath = modelath
+                                                print("模型文件="+modelath)
                                             }
                                         } catch {
                                             showErrorToast.toggle()
@@ -130,6 +131,19 @@ struct QRCodeScannerExampleView: View {
     
     
 }
+
+class DazModelSingleton {
+    static let shared = DazModelSingleton()
+    public var modelPath:String
+
+    private init() {
+        // 私有化构造函数以防止外部实例化
+        modelPath = "" // 提供一个初始值
+    }
+
+    // 在这里添加类的方法和属性
+}
+
 
 #Preview {
     ContentView()

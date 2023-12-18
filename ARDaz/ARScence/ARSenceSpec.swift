@@ -20,7 +20,7 @@ final class ARSceneSpec {
     }
     static let models: [ModelSpec] = [
         ModelSpec(fileName: "daz",
-                  soundFileName: "robotSound.mp3",
+                  soundFileName: nil,
                   animationParam: AnimationParam(center: .zero,
                                  radius: 0.2,
                                  angularVelocity: Float.pi / 6.0) ),
