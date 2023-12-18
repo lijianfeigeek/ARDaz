@@ -60,7 +60,7 @@ struct ARContentView: View {
                     HStack {
                         Spacer()
 
-                        Button(action: scaleChange, label: {
+                        Button(action: startAudio, label: {
                             Image(systemName: "waveform.circle.fill")
                                 .font(.system(size: 50))
                                 .foregroundColor(.black)
@@ -77,6 +77,23 @@ struct ARContentView: View {
     private func scaleChange() {
         sceneScaleIndex = sceneScaleIndex == AppConfig.sceneScales.count - 1
                             ? 0 : sceneScaleIndex + 1
+    }
+    
+    private func startAudio(){
+        do{
+            let speechToTextModel = try SpeechToTextModel()
+            DispatchQueue.global(qos: .userInitiated).async {
+                do{
+                    try speechToTextModel.startRecognition()
+                }catch{
+                    
+                }
+            }
+        }catch{
+            
+        }
+        
+        
     }
 }
 
