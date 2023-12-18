@@ -57,6 +57,18 @@ struct ARContentView: View {
 //                        Spacer()
 //                    }
                     
+                    HStack {
+                        Spacer()
+
+                        Button(action: scaleChange, label: {
+                            Image(systemName: "waveform.circle.fill")
+                                .font(.system(size: 50))
+                                .foregroundColor(.black)
+                                .padding()
+                        })
+                        Spacer()
+                    }
+                    
                 }
                 .padding(40)
             }
