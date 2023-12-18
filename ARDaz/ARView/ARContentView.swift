@@ -35,15 +35,28 @@ struct ARContentView: View {
 
                     Spacer()
 
-                    HStack {
-                        Spacer()
-
-                        Button(action: scaleChange, label: {
-                            Image(systemName: "plus.magnifyingglass")
-                                .font(.system(size: 50))
-                                .padding()
-                        })
-                    }
+//                    HStack {
+//                        Spacer()
+//
+//                        Button(action: scaleChange, label: {
+//                            Image(systemName: "plus.circle")
+//                                .font(.system(size: 50))
+//                                .padding()
+//                        })
+//                        Spacer()
+//                    }
+//                    
+//                    HStack {
+//                        Spacer()
+//
+//                        Button(action: scaleChange, label: {
+//                            Image(systemName: "minus.circle")
+//                                .font(.system(size: 50))
+//                                .padding()
+//                        })
+//                        Spacer()
+//                    }
+                    
                 }
                 .padding(40)
             }

@@ -49,7 +49,7 @@ final class ARScene {
 
                         let audioController = entity.prepareAudio(audioFileResource)
                         audioController.gain = -6
-                        audioController.play()
+//                        audioController.play()
                     })
                     .store(in: &loadingSubscriptions)
             } else {
