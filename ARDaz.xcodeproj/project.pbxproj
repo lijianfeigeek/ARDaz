@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7B0372DE2B2FFC7A00A60AFC /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 7B0372DD2B2FFC7A00A60AFC /* CodeScanner */; };
 		7B0372E12B2FFFC800A60AFC /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 7B0372E02B2FFFC800A60AFC /* AlertToast */; };
+		7B0372E42B300B6C00A60AFC /* Tiercel in Frameworks */ = {isa = PBXBuildFile; productRef = 7B0372E32B300B6C00A60AFC /* Tiercel */; };
+		7B0372E72B30185400A60AFC /* ZipArchive in Frameworks */ = {isa = PBXBuildFile; productRef = 7B0372E62B30185400A60AFC /* ZipArchive */; };
 		7BDBC84D2B2FF726003530B3 /* ARDazApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDBC84C2B2FF726003530B3 /* ARDazApp.swift */; };
 		7BDBC84F2B2FF726003530B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDBC84E2B2FF726003530B3 /* ContentView.swift */; };
 		7BDBC8512B2FF727003530B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BDBC8502B2FF727003530B3 /* Assets.xcassets */; };
@@ -28,8 +30,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B0372E42B300B6C00A60AFC /* Tiercel in Frameworks */,
 				7B0372DE2B2FFC7A00A60AFC /* CodeScanner in Frameworks */,
 				7B0372E12B2FFFC800A60AFC /* AlertToast in Frameworks */,
+				7B0372E72B30185400A60AFC /* ZipArchive in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +94,8 @@
 			packageProductDependencies = (
 				7B0372DD2B2FFC7A00A60AFC /* CodeScanner */,
 				7B0372E02B2FFFC800A60AFC /* AlertToast */,
+				7B0372E32B300B6C00A60AFC /* Tiercel */,
+				7B0372E62B30185400A60AFC /* ZipArchive */,
 			);
 			productName = ARDaz;
 			productReference = 7BDBC8492B2FF726003530B3 /* ARDaz.app */;
@@ -122,6 +128,8 @@
 			packageReferences = (
 				7B0372DC2B2FFC7A00A60AFC /* XCRemoteSwiftPackageReference "CodeScanner" */,
 				7B0372DF2B2FFFC800A60AFC /* XCRemoteSwiftPackageReference "AlertToast" */,
+				7B0372E22B300B6C00A60AFC /* XCRemoteSwiftPackageReference "Tiercel" */,
+				7B0372E52B30185400A60AFC /* XCRemoteSwiftPackageReference "ZipArchive" */,
 			);
 			productRefGroup = 7BDBC84A2B2FF726003530B3 /* Products */;
 			projectDirPath = "";
@@ -376,6 +384,22 @@
 				kind = branch;
 			};
 		};
+		7B0372E22B300B6C00A60AFC /* XCRemoteSwiftPackageReference "Tiercel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Danie1s/Tiercel";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.5;
+			};
+		};
+		7B0372E52B30185400A60AFC /* XCRemoteSwiftPackageReference "ZipArchive" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ZipArchive/ZipArchive.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.5;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -388,6 +412,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7B0372DF2B2FFFC800A60AFC /* XCRemoteSwiftPackageReference "AlertToast" */;
 			productName = AlertToast;
+		};
+		7B0372E32B300B6C00A60AFC /* Tiercel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B0372E22B300B6C00A60AFC /* XCRemoteSwiftPackageReference "Tiercel" */;
+			productName = Tiercel;
+		};
+		7B0372E62B30185400A60AFC /* ZipArchive */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B0372E52B30185400A60AFC /* XCRemoteSwiftPackageReference "ZipArchive" */;
+			productName = ZipArchive;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
