@@ -19,6 +19,7 @@ class SpeechToTextModel {
     var audioConfig: SPXAudioConfiguration
     var sampleRate: Int
     var bufferSize: Int
+    var onRecognitionResult: ((String) -> Void)?
     
     init() throws {
         self.audioEngine = AVAudioEngine()
@@ -114,6 +115,11 @@ class SpeechToTextModel {
                                     if let jsonObject = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any],
                                        let message = jsonObject["response"] as? String {
                                         print("Received message: \(message)")
+                                        
+                                        // TODO 回调外层，给SWIFTUI
+                                        DispatchQueue.main.async {
+                                            self.onRecognitionResult?(message)
+                                        }
                                     }
                                 } catch {
                                     print("Error parsing JSON: \(error)")

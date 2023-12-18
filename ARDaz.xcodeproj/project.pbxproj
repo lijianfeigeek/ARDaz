@@ -24,6 +24,7 @@
 		7BAD9A582B3060D8000A7C08 /* MicrosoftCognitiveServicesSpeech.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7BAD9A542B305FB1000A7C08 /* MicrosoftCognitiveServicesSpeech.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7BAD9A5C2B306319000A7C08 /* SpeechToTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAD9A5B2B306319000A7C08 /* SpeechToTextModel.swift */; };
 		7BAD9A5F2B307336000A7C08 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAD9A5E2B307336000A7C08 /* Alamofire */; };
+		7BAD9A622B307924000A7C08 /* InAppNotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAD9A612B307924000A7C08 /* InAppNotificationExtension.swift */; };
 		7BDBC84D2B2FF726003530B3 /* ARDazApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDBC84C2B2FF726003530B3 /* ARDazApp.swift */; };
 		7BDBC84F2B2FF726003530B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDBC84E2B2FF726003530B3 /* ContentView.swift */; };
 		7BDBC8512B2FF727003530B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BDBC8502B2FF727003530B3 /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		7BAD9A542B305FB1000A7C08 /* MicrosoftCognitiveServicesSpeech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftCognitiveServicesSpeech.framework; sourceTree = "<group>"; };
 		7BAD9A5B2B306319000A7C08 /* SpeechToTextModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToTextModel.swift; sourceTree = "<group>"; };
 		7BAD9A602B307509000A7C08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7BAD9A612B307924000A7C08 /* InAppNotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppNotificationExtension.swift; sourceTree = "<group>"; };
 		7BDBC8492B2FF726003530B3 /* ARDaz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDaz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BDBC84C2B2FF726003530B3 /* ARDazApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDazApp.swift; sourceTree = "<group>"; };
 		7BDBC84E2B2FF726003530B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				7BDBC84C2B2FF726003530B3 /* ARDazApp.swift */,
 				7B0372EB2B3030A000A60AFC /* AppConfig.swift */,
 				7BDBC84E2B2FF726003530B3 /* ContentView.swift */,
+				7BAD9A612B307924000A7C08 /* InAppNotificationExtension.swift */,
 				7B0372EE2B3030E000A60AFC /* ARScence */,
 				7B0372E82B30275200A60AFC /* ARView */,
 				7BDBC8502B2FF727003530B3 /* Assets.xcassets */,
@@ -278,6 +281,7 @@
 				7B0372EC2B3030A000A60AFC /* AppConfig.swift in Sources */,
 				7BAD9A5C2B306319000A7C08 /* SpeechToTextModel.swift in Sources */,
 				7BAD9A412B303879000A7C08 /* ARContainerView.swift in Sources */,
+				7BAD9A622B307924000A7C08 /* InAppNotificationExtension.swift in Sources */,
 				7BAD9A3D2B30382A000A7C08 /* ARScene.swift in Sources */,
 				7BDBC84F2B2FF726003530B3 /* ContentView.swift in Sources */,
 				7BDBC84D2B2FF726003530B3 /* ARDazApp.swift in Sources */,

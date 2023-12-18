@@ -85,6 +85,48 @@ struct ARContentView: View {
             DispatchQueue.global(qos: .userInitiated).async {
                 do{
                     try speechToTextModel.startRecognition()
+                    speechToTextModel.onRecognitionResult = { message in
+                        // 更新 UI 或进行其他处理
+                        print("更新UI: \(message)")
+                        DispatchQueue.main.async {
+                            // TODO 如何展示下面的SWIFTUI View
+                            UIApplication.shared.inAppNotification(adaptForDynamicIsland: true, timeout: 4, swipeToClose: true) { isDynamicIslandEnabled in
+                                HStack {
+                                    Image("Pic")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 40, height: 40)
+                                        .clipShape(.circle)
+                                    
+                                    VStack(alignment: .leading, spacing: 6, content: {
+                                        Text("Daz")
+                                            .font(.caption.bold())
+                                            .foregroundStyle(.white)
+                                        
+                                        Text(message)
+                                            .textScale(.secondary)
+                                            .foregroundStyle(.gray)
+                                    })
+                                    .padding(.top, 20)
+                                    
+                                    Spacer(minLength: 0)
+                                    
+                                    Button(action: {}, label: {
+                                        Image(systemName: "speaker.slash.fill")
+                                            .font(.title2)
+                                    })
+                                    .buttonStyle(.bordered)
+                                    .buttonBorderShape(.circle)
+                                    .tint(.white)
+                                }
+                                .padding(15)
+                                .background {
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .fill(.black)
+                                }
+                            }
+                        }
+                    }
                 }catch{
                     
                 }

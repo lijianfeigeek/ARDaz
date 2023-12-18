@@ -25,7 +25,7 @@ struct ContentView: View {
                 AlertToast(type: .error(.red), title: "QR code error")
             }
         }
-        .sheet(isPresented: $showARView, content: {
+        .fullScreenCover(isPresented: $showARView, content: {
             ARContentView()
                 .onDisappear {
                     showARView = false
@@ -67,7 +67,7 @@ struct QRCodeScannerExampleView: View {
             
             Text("Scan a DazAR QR code to begin")
         }
-        .sheet(isPresented: $isPresentingScanner) {
+        .fullScreenCover(isPresented: $isPresentingScanner) {
             CodeScannerView(codeTypes: [.qr]) { response in
                 switch response {
                 case .success(let result):
