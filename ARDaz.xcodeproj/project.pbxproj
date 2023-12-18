@@ -23,6 +23,7 @@
 		7BAD9A572B3060D8000A7C08 /* MicrosoftCognitiveServicesSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BAD9A542B305FB1000A7C08 /* MicrosoftCognitiveServicesSpeech.framework */; };
 		7BAD9A582B3060D8000A7C08 /* MicrosoftCognitiveServicesSpeech.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7BAD9A542B305FB1000A7C08 /* MicrosoftCognitiveServicesSpeech.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7BAD9A5C2B306319000A7C08 /* SpeechToTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAD9A5B2B306319000A7C08 /* SpeechToTextModel.swift */; };
+		7BAD9A5F2B307336000A7C08 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAD9A5E2B307336000A7C08 /* Alamofire */; };
 		7BDBC84D2B2FF726003530B3 /* ARDazApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDBC84C2B2FF726003530B3 /* ARDazApp.swift */; };
 		7BDBC84F2B2FF726003530B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDBC84E2B2FF726003530B3 /* ContentView.swift */; };
 		7BDBC8512B2FF727003530B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BDBC8502B2FF727003530B3 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		7BAD9A472B303B0F000A7C08 /* robotSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = robotSound.mp3; sourceTree = "<group>"; };
 		7BAD9A542B305FB1000A7C08 /* MicrosoftCognitiveServicesSpeech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftCognitiveServicesSpeech.framework; sourceTree = "<group>"; };
 		7BAD9A5B2B306319000A7C08 /* SpeechToTextModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToTextModel.swift; sourceTree = "<group>"; };
+		7BAD9A602B307509000A7C08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		7BDBC8492B2FF726003530B3 /* ARDaz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDaz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BDBC84C2B2FF726003530B3 /* ARDazApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDazApp.swift; sourceTree = "<group>"; };
 		7BDBC84E2B2FF726003530B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				7BAD9A572B3060D8000A7C08 /* MicrosoftCognitiveServicesSpeech.framework in Frameworks */,
 				7B0372E42B300B6C00A60AFC /* Tiercel in Frameworks */,
 				7B0372DE2B2FFC7A00A60AFC /* CodeScanner in Frameworks */,
+				7BAD9A5F2B307336000A7C08 /* Alamofire in Frameworks */,
 				7B0372E12B2FFFC800A60AFC /* AlertToast in Frameworks */,
 				7B0372E72B30185400A60AFC /* ZipArchive in Frameworks */,
 			);
@@ -157,6 +160,7 @@
 		7BDBC84B2B2FF726003530B3 /* ARDaz */ = {
 			isa = PBXGroup;
 			children = (
+				7BAD9A602B307509000A7C08 /* Info.plist */,
 				7BAD9A5A2B306296000A7C08 /* Speech */,
 				7BAD9A532B305F8D000A7C08 /* SDK */,
 				7BAD9A462B303AF0000A7C08 /* Audio */,
@@ -202,6 +206,7 @@
 				7B0372E02B2FFFC800A60AFC /* AlertToast */,
 				7B0372E32B300B6C00A60AFC /* Tiercel */,
 				7B0372E62B30185400A60AFC /* ZipArchive */,
+				7BAD9A5E2B307336000A7C08 /* Alamofire */,
 			);
 			productName = ARDaz;
 			productReference = 7BDBC8492B2FF726003530B3 /* ARDaz.app */;
@@ -236,6 +241,7 @@
 				7B0372DF2B2FFFC800A60AFC /* XCRemoteSwiftPackageReference "AlertToast" */,
 				7B0372E22B300B6C00A60AFC /* XCRemoteSwiftPackageReference "Tiercel" */,
 				7B0372E52B30185400A60AFC /* XCRemoteSwiftPackageReference "ZipArchive" */,
+				7BAD9A5D2B307336000A7C08 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 7BDBC84A2B2FF726003530B3 /* Products */;
 			projectDirPath = "";
@@ -415,6 +421,7 @@
 					"$(PROJECT_DIR)/ARDaz/SDK",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ARDaz/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "ARDaz Use Your Camera For AR";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "ARDaz Use Your Microphonr For Chat AI";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -450,6 +457,7 @@
 					"$(PROJECT_DIR)/ARDaz/SDK",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ARDaz/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "ARDaz Use Your Camera For AR";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "ARDaz Use Your Microphonr For Chat AI";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -526,6 +534,14 @@
 				minimumVersion = 2.5.5;
 			};
 		};
+		7BAD9A5D2B307336000A7C08 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -548,6 +564,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7B0372E52B30185400A60AFC /* XCRemoteSwiftPackageReference "ZipArchive" */;
 			productName = ZipArchive;
+		};
+		7BAD9A5E2B307336000A7C08 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7BAD9A5D2B307336000A7C08 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

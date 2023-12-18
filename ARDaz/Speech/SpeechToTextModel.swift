@@ -8,6 +8,7 @@
 import Foundation
 import AVFoundation
 import MicrosoftCognitiveServicesSpeech
+import Alamofire
 
 class SpeechToTextModel {
     var audioEngine: AVAudioEngine
@@ -91,6 +92,41 @@ class SpeechToTextModel {
         reco.addRecognizedEventHandler() { reco, evt in
             print("Final recognition result: \(evt.result.text ?? "(no result)")")
             // 可以在这里更新 UI 或调用其他方法处理识别结果
+            // 发起网络请求
+            let url = "http://8.209.213.28:8081/chat_completions"
+            let chatContents = [
+                ["role": "system", "content": "You are a helpful assistant."],
+                ["role": "user", "content": evt.result.text]
+            ]
+            
+            do {
+                let data = try JSONSerialization.data(withJSONObject: chatContents, options: [])
+                if let jsonChatContents = String(data: data, encoding: .utf8) {
+                    let parameters = ["chat_contents": jsonChatContents]
+
+                    AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default).responseJSON { response in
+                        switch response.result {
+                        case .success(let value):
+                            print("Response: \(value)")
+                            // 假设 responseData 是从服务器获取的数据
+                            if let responseData = response.data {
+                                do {
+                                    if let jsonObject = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any],
+                                       let message = jsonObject["response"] as? String {
+                                        print("Received message: \(message)")
+                                    }
+                                } catch {
+                                    print("Error parsing JSON: \(error)")
+                                }
+                            }
+                        case .failure(let error):
+                            print("Error: \(error.localizedDescription)")
+                        }
+                    }
+                }
+            } catch {
+                print("JSON Serialization error: \(error.localizedDescription)")
+            }
         }
         
         reco.addCanceledEventHandler { reco, evt in
