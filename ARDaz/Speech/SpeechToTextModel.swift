@@ -16,6 +16,7 @@ class SpeechToTextModel {
     var reco: SPXSpeechRecognizer
     var conversionQueue: DispatchQueue
     var speechConfig: SPXSpeechConfiguration
+    var speechConfigAudio: SPXSpeechConfiguration
     var audioConfig: SPXAudioConfiguration
     var sampleRate: Int
     var bufferSize: Int
@@ -27,6 +28,7 @@ class SpeechToTextModel {
         self.sampleRate = 16000
         self.bufferSize = 2048
         self.speechConfig = try SPXSpeechConfiguration(subscription: "fffcf41611b246eb988283df69ded060", region: "westeurope")
+        self.speechConfigAudio = try SPXSpeechConfiguration(subscription: "fffcf41611b246eb988283df69ded060", region: "westeurope")
         self.speechConfig.speechRecognitionLanguage = "en-US"
         self.pushStream = SPXPushAudioInputStream()
         self.audioConfig = SPXAudioConfiguration(streamInput: pushStream)!
@@ -157,6 +159,29 @@ class SpeechToTextModel {
         self.audioEngine.inputNode.removeTap(onBus: 0)
         self.pushStream.close()
     }
+    
+    func synthesisToSpeaker(inputText: String) {
+        if inputText.isEmpty {
+            return
+        }
+
+//        var speechConfig: SPXSpeechConfiguration?
+//        do {
+//            try speechConfig = SPXSpeechConfiguration(subscription: sub, region: region)
+//        } catch {
+//            print("error \(error) happened")
+//            speechConfig = nil
+//        }
+
+
+        let synthesizer = try! SPXSpeechSynthesizer(self.speechConfigAudio)
+        let result = try! synthesizer.speakText(inputText)
+        if result.reason == SPXResultReason.canceled {
+            let cancellationDetails = try! SPXSpeechSynthesisCancellationDetails(fromCanceledSynthesisResult: result)
+            print("cancelled, detail: \(cancellationDetails.errorDetails!) ")
+        }
+    }
+
 }
 
 extension AVAudioPCMBuffer {

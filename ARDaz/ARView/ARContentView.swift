@@ -88,6 +88,9 @@ struct ARContentView: View {
                     speechToTextModel.onRecognitionResult = { message in
                         // 更新 UI 或进行其他处理
                         print("更新UI: \(message)")
+                        DispatchQueue.global(qos: .userInitiated).async {
+                            speechToTextModel.synthesisToSpeaker(inputText: message)
+                        }
                         DispatchQueue.main.async {
                             // TODO 如何展示下面的SWIFTUI View
                             UIApplication.shared.inAppNotification(adaptForDynamicIsland: true, timeout: 4, swipeToClose: true) { isDynamicIslandEnabled in
