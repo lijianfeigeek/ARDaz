@@ -173,12 +173,30 @@ class SpeechToTextModel {
 //            speechConfig = nil
 //        }
 
+        
+        do {
+            // 设置 AVAudioSession 类别
+            try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, options: [])
 
-        let synthesizer = try! SPXSpeechSynthesizer(self.speechConfigAudio)
-        let result = try! synthesizer.speakText(inputText)
-        if result.reason == SPXResultReason.canceled {
-            let cancellationDetails = try! SPXSpeechSynthesisCancellationDetails(fromCanceledSynthesisResult: result)
-            print("cancelled, detail: \(cancellationDetails.errorDetails!) ")
+            // 激活音频会话
+            try AVAudioSession.sharedInstance().setActive(true)
+
+            // 强制音频输出到内建扬声器
+            try AVAudioSession.sharedInstance().overrideOutputAudioPort(.speaker)
+
+            // 初始化并使用 SPXSpeechSynthesizer
+            // 示例：let synthesizer = SPXSpeechSynthesizer(您的配置)
+            // synthesizer.speakText("您的文本")
+            
+            let synthesizer = try! SPXSpeechSynthesizer(self.speechConfigAudio)
+            let result = try! synthesizer.speakText(inputText)
+            if result.reason == SPXResultReason.canceled {
+                let cancellationDetails = try! SPXSpeechSynthesisCancellationDetails(fromCanceledSynthesisResult: result)
+                print("cancelled, detail: \(cancellationDetails.errorDetails!) ")
+            }
+
+        } catch {
+            print("音频会话设置失败: \(error)")
         }
     }
 
