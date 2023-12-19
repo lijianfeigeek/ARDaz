@@ -9,10 +9,12 @@ import SwiftUI
 import ActivityIndicatorView
 import Tiercel
 import ZipArchive
+import SPConfetti
 struct ARContentView: View {
     @Environment(\.dismiss) var dismiss
     @State private var sceneScaleIndex = 1//AR 物体到比例
     @State private var isSpeek = false
+    @State private var isPaySuccess = false
     @State private var showText = true // 控制 Text 的显示
     
     @ObservedObject var viewModel = ViewModel()
@@ -93,7 +95,14 @@ struct ARContentView: View {
                     
                 }
                 .padding(40)
-            }
+            }.confetti(isPresented: $isPaySuccess,
+                       animation: .fullWidthToDown,
+                       particles: [.triangle, .arc, .heart],
+                       duration: 1.0)
+             .confettiParticle(\.velocity, 600)
+             .confettiParticle(\.velocityRange, 200)
+             .confettiParticle(\.birthRate, 100)
+             .confettiParticle(\.spin, 4)
     }
     
     private func scaleChange() {
@@ -110,6 +119,7 @@ struct ARContentView: View {
                     try speechToTextModel.startRecognition()
                     speechToTextModel.onRecognitionResult = { message_org in
                         let url = "http://30.176.204.45:8888/sneaker_pegasustrail.usdz.zip"
+                        let paySuccess = "$$$$$$$"
                         var message:String
                         if message_org.contains(url) {
                             print("包含")
@@ -169,6 +179,12 @@ struct ARContentView: View {
                         } else {
                             print("不包含")
                             message = message_org
+                        }
+                        if message_org.contains(paySuccess){
+                            print("包含 paySuccess")
+//                            NotificationCenter.default.post(name:.paySuccess, object: nil, userInfo: nil)
+                            isPaySuccess.toggle()
+                            message = message.replacingOccurrences(of: "$$$$$$$", with: "")
                         }
                         // 更新 UI 或进行其他处理
                         print("更新UI: \(message)")
@@ -230,6 +246,7 @@ struct ARContentView: View {
 
 extension Notification.Name {
     static let myCustomNotification = Notification.Name("myCustomNotification")
+    static let paySuccess = Notification.Name("paySuccess")
 }
 
 #Preview {

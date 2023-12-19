@@ -26,6 +26,7 @@
 		7BAD9A5F2B307336000A7C08 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAD9A5E2B307336000A7C08 /* Alamofire */; };
 		7BAD9A622B307924000A7C08 /* InAppNotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAD9A612B307924000A7C08 /* InAppNotificationExtension.swift */; };
 		7BCD2D652B317D9300F49F6D /* sneaker_pegasustrail.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 7BCD2D642B317D9300F49F6D /* sneaker_pegasustrail.usdz */; };
+		7BCD2D682B3191E800F49F6D /* SPConfetti in Frameworks */ = {isa = PBXBuildFile; productRef = 7BCD2D672B3191E800F49F6D /* SPConfetti */; };
 		7BDBC84D2B2FF726003530B3 /* ARDazApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDBC84C2B2FF726003530B3 /* ARDazApp.swift */; };
 		7BDBC84F2B2FF726003530B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDBC84E2B2FF726003530B3 /* ContentView.swift */; };
 		7BDBC8512B2FF727003530B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BDBC8502B2FF727003530B3 /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BAD9A572B3060D8000A7C08 /* MicrosoftCognitiveServicesSpeech.framework in Frameworks */,
+				7BCD2D682B3191E800F49F6D /* SPConfetti in Frameworks */,
 				7B0372E42B300B6C00A60AFC /* Tiercel in Frameworks */,
 				7B048F782B314F4200951282 /* ActivityIndicatorView in Frameworks */,
 				7B0372DE2B2FFC7A00A60AFC /* CodeScanner in Frameworks */,
@@ -213,6 +215,7 @@
 				7B0372E62B30185400A60AFC /* ZipArchive */,
 				7BAD9A5E2B307336000A7C08 /* Alamofire */,
 				7B048F772B314F4200951282 /* ActivityIndicatorView */,
+				7BCD2D672B3191E800F49F6D /* SPConfetti */,
 			);
 			productName = ARDaz;
 			productReference = 7BDBC8492B2FF726003530B3 /* ARDaz.app */;
@@ -249,6 +252,7 @@
 				7B0372E52B30185400A60AFC /* XCRemoteSwiftPackageReference "ZipArchive" */,
 				7BAD9A5D2B307336000A7C08 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				7B048F762B314F4200951282 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
+				7BCD2D662B3191E800F49F6D /* XCRemoteSwiftPackageReference "SPConfetti" */,
 			);
 			productRefGroup = 7BDBC84A2B2FF726003530B3 /* Products */;
 			projectDirPath = "";
@@ -558,6 +562,14 @@
 				minimumVersion = 5.8.1;
 			};
 		};
+		7BCD2D662B3191E800F49F6D /* XCRemoteSwiftPackageReference "SPConfetti" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPConfetti";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -590,6 +602,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7BAD9A5D2B307336000A7C08 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		7BCD2D672B3191E800F49F6D /* SPConfetti */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7BCD2D662B3191E800F49F6D /* XCRemoteSwiftPackageReference "SPConfetti" */;
+			productName = SPConfetti;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
