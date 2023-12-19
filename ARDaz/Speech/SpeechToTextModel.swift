@@ -99,7 +99,7 @@ class SpeechToTextModel {
             // 发起网络请求
             let url = "http://8.209.213.28:8081/chat_completions"
             let chatContents = [
-                ["role": "system", "content": "You are a helpful assistant."],
+//                ["role": "system", "content": "You are a helpful assistant."],
                 ["role": "user", "content": evt.result.text]
             ]
             

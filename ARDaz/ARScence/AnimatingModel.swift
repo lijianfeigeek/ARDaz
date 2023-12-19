@@ -28,8 +28,8 @@ struct AnimatingModel {
     //    }
     
     func update(at time: Double) {
-        let rotation = calcRotation(at: time)
-        entity.transform.rotation = rotation
+//        let rotation = calcRotation(at: time)
+//        entity.transform.rotation = rotation
     }
     
     private func calcRotation(at time: Double) -> simd_quatf {
