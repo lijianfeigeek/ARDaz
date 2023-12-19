@@ -135,10 +135,12 @@ struct QRCodeScannerExampleView: View {
 class DazModelSingleton {
     static let shared = DazModelSingleton()
     public var modelPath:String
+    public var chatList:[String]
 
     private init() {
         // 私有化构造函数以防止外部实例化
         modelPath = "" // 提供一个初始值
+        chatList = []
     }
 
     // 在这里添加类的方法和属性

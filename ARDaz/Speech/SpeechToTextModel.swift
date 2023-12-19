@@ -95,13 +95,18 @@ class SpeechToTextModel {
         // 设置事件处理
         reco.addRecognizedEventHandler() { reco, evt in
             print("Final recognition result: \(evt.result.text ?? "(no result)")")
+            DazModelSingleton.shared.chatList.append(evt.result.text ?? "Sorry")
             // 可以在这里更新 UI 或调用其他方法处理识别结果
             // 发起网络请求
             let url = "http://8.209.213.28:8081/chat_completions"
-            let chatContents = [
-//                ["role": "system", "content": "You are a helpful assistant."],
-                ["role": "user", "content": evt.result.text]
-            ]
+            var chatContents: [[String: String]] = []
+
+            for chatListItem in DazModelSingleton.shared.chatList {
+                let chatItem = ["role": "user", "content": chatListItem]
+                chatContents.append(chatItem)
+            }
+            
+            print("chatContents = \(chatContents)")
             
             do {
                 let data = try JSONSerialization.data(withJSONObject: chatContents, options: [])
@@ -165,6 +170,7 @@ class SpeechToTextModel {
         if inputText.isEmpty {
             return
         }
+        DazModelSingleton.shared.chatList.append(inputText)
 
 //        var speechConfig: SPXSpeechConfiguration?
 //        do {
