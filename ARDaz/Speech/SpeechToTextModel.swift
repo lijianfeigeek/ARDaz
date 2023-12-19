@@ -29,6 +29,7 @@ class SpeechToTextModel {
         self.bufferSize = 2048
         self.speechConfig = try SPXSpeechConfiguration(subscription: "fffcf41611b246eb988283df69ded060", region: "westeurope")
         self.speechConfigAudio = try SPXSpeechConfiguration(subscription: "fffcf41611b246eb988283df69ded060", region: "westeurope")
+        self.speechConfigAudio.speechSynthesisVoiceName = "en-US-AriaNeural"
         self.speechConfig.speechRecognitionLanguage = "en-US"
         self.pushStream = SPXPushAudioInputStream()
         self.audioConfig = SPXAudioConfiguration(streamInput: pushStream)!

@@ -11,6 +11,8 @@ struct ARContentView: View {
     @Environment(\.dismiss) var dismiss
     @State private var sceneScaleIndex = 1//AR 物体到比例
     @State private var isSpeek = false
+    @State private var showText = true // 控制 Text 的显示
+
     private var sceneScale: SIMD3<Float> {
         AppConfig.sceneScales[sceneScaleIndex]
     }
@@ -24,15 +26,15 @@ struct ARContentView: View {
                         Button(action: dismiss.callAsFunction) {
                             Image(systemName: "xmark.circle")
                                 .font(.system(size: 40))
-                                .foregroundColor(.black)
+                                .foregroundColor(.white)
                         }
                     }
 
-                    Text("Tap a plane to place models.")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(.white.opacity(0.3))
-                        .cornerRadius(10)
+//                    Text("Tap a plane to place models.")
+//                        .foregroundColor(.white)
+//                        .padding()
+//                        .background(.white.opacity(0.3))
+//                        .cornerRadius(10)
 
                     Spacer()
 
@@ -73,12 +75,12 @@ struct ARContentView: View {
                             if(isSpeek){
                                 Image(systemName: "person.line.dotted.person.fill")
                                     .font(.system(size: 50))
-                                    .foregroundColor(.black)
+                                    .foregroundColor(.white)
                                     .padding()
                             }else{
                                 Image(systemName: "waveform.circle.fill")
                                     .font(.system(size: 50))
-                                    .foregroundColor(.black)
+                                    .foregroundColor(.white)
                                     .padding()
                             }
                         })
