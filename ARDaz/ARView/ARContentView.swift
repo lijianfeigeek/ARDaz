@@ -78,7 +78,7 @@ struct ARContentView: View {
                                     .foregroundColor(.white)
                                     .padding()
                             }else{
-                                Image(systemName: "waveform.circle.fill")
+                                Image(systemName: "person.wave.2")
                                     .font(.system(size: 50))
                                     .foregroundColor(.white)
                                     .padding()
