@@ -92,6 +92,8 @@ class ARViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self,
                                          action: #selector(tapped(_:)))
         arView.addGestureRecognizer(tap)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleNotification(_:)), name: .myCustomNotification, object: nil)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -186,6 +188,11 @@ extension ARViewController {
         } else {
             // do nothing (the gesture is not ended yet)
         }
+    }
+    
+    @objc func handleNotification(_ notification: Notification) {
+        arScene?.loadModels()
+        startFrameLoop()
     }
 
     private func placeARScene(_ anchorEntity: AnchorEntity) {

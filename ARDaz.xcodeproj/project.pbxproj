@@ -19,13 +19,13 @@
 		7BAD9A3D2B30382A000A7C08 /* ARScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAD9A3C2B30382A000A7C08 /* ARScene.swift */; };
 		7BAD9A3F2B303856000A7C08 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAD9A3E2B303856000A7C08 /* ARViewController.swift */; };
 		7BAD9A412B303879000A7C08 /* ARContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAD9A402B303879000A7C08 /* ARContainerView.swift */; };
-		7BAD9A442B303AB8000A7C08 /* daz.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 7BAD9A432B303AB8000A7C08 /* daz.usdz */; };
 		7BAD9A482B303B0F000A7C08 /* robotSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7BAD9A472B303B0F000A7C08 /* robotSound.mp3 */; };
 		7BAD9A572B3060D8000A7C08 /* MicrosoftCognitiveServicesSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BAD9A542B305FB1000A7C08 /* MicrosoftCognitiveServicesSpeech.framework */; };
 		7BAD9A582B3060D8000A7C08 /* MicrosoftCognitiveServicesSpeech.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7BAD9A542B305FB1000A7C08 /* MicrosoftCognitiveServicesSpeech.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7BAD9A5C2B306319000A7C08 /* SpeechToTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAD9A5B2B306319000A7C08 /* SpeechToTextModel.swift */; };
 		7BAD9A5F2B307336000A7C08 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAD9A5E2B307336000A7C08 /* Alamofire */; };
 		7BAD9A622B307924000A7C08 /* InAppNotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAD9A612B307924000A7C08 /* InAppNotificationExtension.swift */; };
+		7BCD2D652B317D9300F49F6D /* sneaker_pegasustrail.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 7BCD2D642B317D9300F49F6D /* sneaker_pegasustrail.usdz */; };
 		7BDBC84D2B2FF726003530B3 /* ARDazApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDBC84C2B2FF726003530B3 /* ARDazApp.swift */; };
 		7BDBC84F2B2FF726003530B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDBC84E2B2FF726003530B3 /* ContentView.swift */; };
 		7BDBC8512B2FF727003530B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BDBC8502B2FF727003530B3 /* Assets.xcassets */; };
@@ -54,12 +54,12 @@
 		7BAD9A3C2B30382A000A7C08 /* ARScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARScene.swift; sourceTree = "<group>"; };
 		7BAD9A3E2B303856000A7C08 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		7BAD9A402B303879000A7C08 /* ARContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARContainerView.swift; sourceTree = "<group>"; };
-		7BAD9A432B303AB8000A7C08 /* daz.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = daz.usdz; sourceTree = "<group>"; };
 		7BAD9A472B303B0F000A7C08 /* robotSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = robotSound.mp3; sourceTree = "<group>"; };
 		7BAD9A542B305FB1000A7C08 /* MicrosoftCognitiveServicesSpeech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftCognitiveServicesSpeech.framework; sourceTree = "<group>"; };
 		7BAD9A5B2B306319000A7C08 /* SpeechToTextModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToTextModel.swift; sourceTree = "<group>"; };
 		7BAD9A602B307509000A7C08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		7BAD9A612B307924000A7C08 /* InAppNotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppNotificationExtension.swift; sourceTree = "<group>"; };
+		7BCD2D642B317D9300F49F6D /* sneaker_pegasustrail.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = sneaker_pegasustrail.usdz; sourceTree = "<group>"; };
 		7BDBC8492B2FF726003530B3 /* ARDaz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDaz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BDBC84C2B2FF726003530B3 /* ARDazApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDazApp.swift; sourceTree = "<group>"; };
 		7BDBC84E2B2FF726003530B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 		7BAD9A422B303A85000A7C08 /* LocalModel */ = {
 			isa = PBXGroup;
 			children = (
-				7BAD9A432B303AB8000A7C08 /* daz.usdz */,
+				7BCD2D642B317D9300F49F6D /* sneaker_pegasustrail.usdz */,
 			);
 			path = LocalModel;
 			sourceTree = "<group>";
@@ -265,8 +265,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BDBC8542B2FF727003530B3 /* Preview Assets.xcassets in Resources */,
+				7BCD2D652B317D9300F49F6D /* sneaker_pegasustrail.usdz in Resources */,
 				7BDBC8512B2FF727003530B3 /* Assets.xcassets in Resources */,
-				7BAD9A442B303AB8000A7C08 /* daz.usdz in Resources */,
 				7BAD9A482B303B0F000A7C08 /* robotSound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

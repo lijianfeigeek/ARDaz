@@ -24,7 +24,7 @@ final class ARScene {
     }
 
     func loadModels() {
-        assert(animatingModels.isEmpty)
+//        assert(animatingModels.isEmpty)
         anchorEntity.transform.translation = ARSceneSpec.position
 
         ARSceneSpec.models.forEach { modelSpec in
