@@ -14,6 +14,7 @@
 		7B0372EA2B30277300A60AFC /* ARContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0372E92B30277300A60AFC /* ARContentView.swift */; };
 		7B0372EC2B3030A000A60AFC /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0372EB2B3030A000A60AFC /* AppConfig.swift */; };
 		7B0372F02B3031B300A60AFC /* ARSenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0372EF2B3031B300A60AFC /* ARSenceSpec.swift */; };
+		7B048F782B314F4200951282 /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 7B048F772B314F4200951282 /* ActivityIndicatorView */; };
 		7BAD9A3B2B303801000A7C08 /* AnimatingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAD9A3A2B303801000A7C08 /* AnimatingModel.swift */; };
 		7BAD9A3D2B30382A000A7C08 /* ARScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAD9A3C2B30382A000A7C08 /* ARScene.swift */; };
 		7BAD9A3F2B303856000A7C08 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAD9A3E2B303856000A7C08 /* ARViewController.swift */; };
@@ -73,6 +74,7 @@
 			files = (
 				7BAD9A572B3060D8000A7C08 /* MicrosoftCognitiveServicesSpeech.framework in Frameworks */,
 				7B0372E42B300B6C00A60AFC /* Tiercel in Frameworks */,
+				7B048F782B314F4200951282 /* ActivityIndicatorView in Frameworks */,
 				7B0372DE2B2FFC7A00A60AFC /* CodeScanner in Frameworks */,
 				7BAD9A5F2B307336000A7C08 /* Alamofire in Frameworks */,
 				7B0372E12B2FFFC800A60AFC /* AlertToast in Frameworks */,
@@ -210,6 +212,7 @@
 				7B0372E32B300B6C00A60AFC /* Tiercel */,
 				7B0372E62B30185400A60AFC /* ZipArchive */,
 				7BAD9A5E2B307336000A7C08 /* Alamofire */,
+				7B048F772B314F4200951282 /* ActivityIndicatorView */,
 			);
 			productName = ARDaz;
 			productReference = 7BDBC8492B2FF726003530B3 /* ARDaz.app */;
@@ -245,6 +248,7 @@
 				7B0372E22B300B6C00A60AFC /* XCRemoteSwiftPackageReference "Tiercel" */,
 				7B0372E52B30185400A60AFC /* XCRemoteSwiftPackageReference "ZipArchive" */,
 				7BAD9A5D2B307336000A7C08 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				7B048F762B314F4200951282 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
 			);
 			productRefGroup = 7BDBC84A2B2FF726003530B3 /* Products */;
 			projectDirPath = "";
@@ -538,6 +542,14 @@
 				minimumVersion = 2.5.5;
 			};
 		};
+		7B048F762B314F4200951282 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/ActivityIndicatorView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.1;
+			};
+		};
 		7BAD9A5D2B307336000A7C08 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -568,6 +580,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7B0372E52B30185400A60AFC /* XCRemoteSwiftPackageReference "ZipArchive" */;
 			productName = ZipArchive;
+		};
+		7B048F772B314F4200951282 /* ActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B048F762B314F4200951282 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */;
+			productName = ActivityIndicatorView;
 		};
 		7BAD9A5E2B307336000A7C08 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

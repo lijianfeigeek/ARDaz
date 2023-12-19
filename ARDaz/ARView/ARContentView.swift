@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
-
+import ActivityIndicatorView
 struct ARContentView: View {
     @Environment(\.dismiss) var dismiss
     @State private var sceneScaleIndex = 1//AR 物体到比例
-
+    @State private var isSpeek = false
     private var sceneScale: SIMD3<Float> {
         AppConfig.sceneScales[sceneScaleIndex]
     }
@@ -24,6 +24,7 @@ struct ARContentView: View {
                         Button(action: dismiss.callAsFunction) {
                             Image(systemName: "xmark.circle")
                                 .font(.system(size: 40))
+                                .foregroundColor(.black)
                         }
                     }
 
@@ -57,14 +58,29 @@ struct ARContentView: View {
 //                        Spacer()
 //                    }
                     
+                    HStack{
+                        Spacer()
+                        ActivityIndicatorView(isVisible: $isSpeek, type: .scalingDots())
+                            .frame(width: 100, height: 50)
+                            .foregroundColor(.white)
+                        Spacer()
+                    }
+                    
                     HStack {
                         Spacer()
 
                         Button(action: startAudio, label: {
-                            Image(systemName: "waveform.circle.fill")
-                                .font(.system(size: 50))
-                                .foregroundColor(.black)
-                                .padding()
+                            if(isSpeek){
+                                Image(systemName: "person.line.dotted.person.fill")
+                                    .font(.system(size: 50))
+                                    .foregroundColor(.black)
+                                    .padding()
+                            }else{
+                                Image(systemName: "waveform.circle.fill")
+                                    .font(.system(size: 50))
+                                    .foregroundColor(.black)
+                                    .padding()
+                            }
                         })
                         Spacer()
                     }
@@ -80,6 +96,7 @@ struct ARContentView: View {
     }
     
     private func startAudio(){
+        isSpeek.toggle()
         do{
             let speechToTextModel = try SpeechToTextModel()
             DispatchQueue.global(qos: .userInitiated).async {
@@ -92,6 +109,8 @@ struct ARContentView: View {
                             speechToTextModel.synthesisToSpeaker(inputText: message)
                         }
                         DispatchQueue.main.async {
+                            isSpeek.toggle()
+
                             // TODO 如何展示下面的SWIFTUI View
                             UIApplication.shared.inAppNotification(adaptForDynamicIsland: true, timeout: 4, swipeToClose: true) { isDynamicIslandEnabled in
                                 HStack {
